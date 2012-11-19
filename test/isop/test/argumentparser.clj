@@ -8,7 +8,7 @@
 
 ;(deftest recognizes_shortform
 ;    (is (= ((build-recognizer ["&argument"]) (list "-a"))
-;        ();    (Parsed. (RecognizedArgument. "a" "") ())
+;            (list (RecognizedArgument. "a" "" "&argument"))
 ;        )
 ;    )
 ;)
@@ -16,7 +16,7 @@
 (deftest recognizes_longform
     (is (= ((build-recognizer ["beta"]) (list "-a" "--beta"))
              (list (UnRecognizedArgument. "a" nil)
-                   (RecognizedArgument. "beta" nil) )
+                   (RecognizedArgument. "beta" nil "beta") )
         )
     )
 )
